@@ -1,0 +1,37 @@
+# Self-host Medash Academy anywhere with Docker: backend + frontend.
+# Usage: docker compose up --build
+# Frontend: http://localhost:5174  |  Backend: http://localhost:8001/docs
+services:
+  api:
+    build: ./backend
+    environment:
+      - PORT=8001
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+    ports:
+      - "8001:8001"
+    volumes:
+      - medash-media:/app/media
+      - medash-data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/api/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  web:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm install --no-audit --no-fund && npm run dev -- --host 0.0.0.0 --port 5174"
+    environment:
+      - VITE_API_URL=http://localhost:8001
+    ports:
+      - "5174:5174"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - api
+
+volumes:
+  medash-media:
+  medash-data:

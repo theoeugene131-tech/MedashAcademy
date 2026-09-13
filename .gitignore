@@ -1,0 +1,21 @@
+# deps / build
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.vercel/
+vercel/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# env / secrets
+.env
+*.local
+
+# generated course media + db (rebuild on demand)
+backend/media/*/
+backend/data/courses.json

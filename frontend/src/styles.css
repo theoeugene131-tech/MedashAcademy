@@ -1,0 +1,31 @@
+:root { font-family: Inter, system-ui, sans-serif; background: #0b1220; color: #e5e7eb; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: #93c5fd; }
+.app { max-width: 1100px; margin: 0 auto; padding: 24px; }
+header.top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+header.top h1 { margin: 0; font-size: 28px; }
+.badge { background: #1d4ed8; padding: 4px 10px; border-radius: 999px; font-size: 12px; }
+.card { background: #111c33; border: 1px solid #24365c; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+label { display: block; font-size: 13px; color: #9fb0cc; margin-bottom: 12px; }
+input, select { width: 100%; margin-top: 6px; padding: 10px; border-radius: 8px; border: 1px solid #2c4470; background: #0b1528; color: #e5e7eb; }
+button { background: #2563eb; color: white; border: 0; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+button:disabled { opacity: 0.5; cursor: wait; }
+button.ghost { background: transparent; border: 1px solid #2c4470; }
+.layout { display: grid; grid-template-columns: 300px 1fr; gap: 16px; }
+.nav button { display: block; width: 100%; text-align: left; margin-bottom: 8px; background: #0e1a30; }
+.nav button.active { background: #1d4ed8; }
+.tabs { display: flex; gap: 8px; margin: 12px 0; }
+.tabs button.active { background: #0ea5e9; }
+pre.lecture { white-space: pre-wrap; background: #0b1528; padding: 16px; border-radius: 8px; line-height: 1.6; }
+.quiz-q { margin-bottom: 14px; padding: 12px; background: #0b1528; border-radius: 8px; }
+.quiz-q label { color: #e5e7eb; }
+.result { padding: 10px; border-radius: 8px; margin-top: 8px; }
+.result.ok { background: #052e16; border: 1px solid #16a34a; }
+.result.bad { background: #450a0a; border: 1px solid #dc2626; }
+video, audio { width: 100%; margin-top: 8px; }
+.slides { display: flex; gap: 8px; flex-wrap: wrap; }
+.slides img { width: 220px; border-radius: 8px; border: 1px solid #2c4470; }
+.error { background: #450a0a; padding: 10px; border-radius: 8px; }
+@media (max-width: 800px) { .row, .layout { grid-template-columns: 1fr; } }
