@@ -30,7 +30,12 @@ class Lecture(BaseModel):
     id: str
     title: str
     body_markdown: str
+    objective: str = ""
+    prerequisites: list[str] = []
     key_points: list[str] = []
+    practice: list[str] = []
+    takeaways: list[str] = []
+    further_reading: list[str] = []
     duration_min: int = 5
     audio_url: str | None = None
     video_url: str | None = None
@@ -51,6 +56,9 @@ class Course(BaseModel):
     level: str
     audience: str = ""
     description: str = ""
+    prerequisites: list[str] = []
+    objectives: list[str] = []
+    generated_by: str = "template"
     created_at: str = ""
     modules: list[Module] = []
 
@@ -64,3 +72,28 @@ class GradeResponse(BaseModel):
     total: int
     percent: float
     details: list[dict]
+
+
+class EnrollRequest(BaseModel):
+    course_id: str
+    student_name: str = Field(min_length=1, max_length=120)
+
+
+class Certificate(BaseModel):
+    id: str
+    student_name: str
+    course_id: str
+    course_topic: str
+    issued_at: str
+    completion_percent: float
+    grade: str
+
+
+class Enrollment(BaseModel):
+    id: str
+    course_id: str
+    student_name: str
+    enrolled_at: str
+    passed_lectures: list[str] = []
+    scores: dict[str, float] = {}
+    certificate: Certificate | None = None

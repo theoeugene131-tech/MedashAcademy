@@ -6,6 +6,34 @@ a { color: #93c5fd; }
 header.top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 header.top h1 { margin: 0; font-size: 28px; }
 .badge { background: #1d4ed8; padding: 4px 10px; border-radius: 999px; font-size: 12px; }
+.badge.live { background: #15803d; }
+.badge.tpl { background: #b45309; }
+.objective { color: #cbd5e1; background: #0b1528; padding: 8px 12px; border-radius: 8px; }
+.box { margin-top: 12px; padding: 12px; background: #0b1528; border-radius: 8px; }
+.box h4 { margin: 0 0 6px; color: #93c5fd; }
+ul.tick { list-style: none; padding-left: 0; }
+ul.tick li::before { content: "✓ "; color: #4ade80; }
+.box.enroll label { display: block; margin-top: 8px; }
+.box.enroll .hint { display: block; margin-top: 8px; font-size: 12px; color: #94a3b8; }
+.bar { height: 8px; border-radius: 999px; background: #1e293b; overflow: hidden; margin: 8px 0; }
+.bar > div { height: 100%; background: linear-gradient(90deg, #22c55e, #0ea5e9); transition: width .3s; }
+.box.prog span { font-size: 13px; color: #cbd5e1; }
+.box.prog button { margin-top: 8px; }
+.certificate { border: 8px double #d4a017; border-radius: 12px; background: #fff; color: #172554; text-align: center; padding: 32px 24px; font-family: Georgia, 'Times New Roman', serif; }
+.certificate h2 { color: #172554; letter-spacing: 2px; margin: 0; }
+.certificate .kicker { letter-spacing: 4px; color: #b45309; font-weight: 700; margin: 4px 0 24px; }
+.certificate h1 { color: #172554; margin: 8px 0; font-size: 2.2em; }
+.certificate h3 { color: #0d9488; margin: 8px 0 16px; }
+.certificate .line { font-size: 15px; color: #334155; margin: 6px 0; }
+.certificate .small { font-size: 12px; color: #64748b; }
+.certificate .seal { font-size: 40px; }
+.certificate button { font-family: inherit; margin-top: 16px; }
+@media print {
+  body * { visibility: hidden; }
+  #print-area, #print-area * { visibility: visible; }
+  #print-area { position: absolute; inset: 0; }
+  #print-area .certificate { border-width: 3px; }
+}
 .card { background: #111c33; border: 1px solid #24365c; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
 .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 label { display: block; font-size: 13px; color: #9fb0cc; margin-bottom: 12px; }
